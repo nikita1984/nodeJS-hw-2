@@ -4,9 +4,10 @@ setTimeout(() => {             // попадает в очередь для ис
   console.log('Record 2');          // немедлено исполниться на итерации макрозадач
   Promise.resolve().then(() => {
     setTimeout(() => {
-    сonsole.log('Record 3');        // исполниться на конечной итерации макрозадач
-    Promise.resolve().then(() => {
-      console.log('Record 4');      // исполниться на второй итерации макрозадач    
+      // исполниться на итерации таймеров макрозадач
+      сonsole.log('Record 3');        
+      Promise.resolve().then(() => {
+        console.log('Record 4');      // исполниться на второй итерации таймеров макрозадач    
       });       
     });
   });       
@@ -28,6 +29,6 @@ Record 6
 
 Затем на очереди макрозадач в консоль будет выведено:
 Record 2
-Record 4
 Record 3
+Record 4
 */
